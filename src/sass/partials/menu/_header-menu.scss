@@ -1,0 +1,109 @@
+﻿@import "../../modules/_base.scss";
+/* Header Menu */
+.h-menu{
+    list-style-type:none;
+    padding:15px 25px;
+    margin:20px 0 0;
+    font-size:0;
+    position:absolute; //стили для мобильного меню
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    z-index:900;
+    box-shadow:0 2px 2px 1px rgba(#000, .1);
+    display:none;
+
+    &.active{
+        display:block;
+    }
+
+    &:before,
+    &:after{ //треугольник
+        content:'';
+        position:absolute;
+    }
+
+    &:before{
+        @include triangle(16px, $border-color, up);
+        top:-8px;
+        right:35px;
+    }
+
+    &:after{
+        @include triangle(15px, #fff, up);
+        top:-7px;
+        right:36px;
+    }
+}
+
+.h-menu__item,
+.h-menu li{
+    display:block;
+    font-size:rem(14px);
+}
+
+.h-menu__link,
+.h-menu a{
+    display:block;
+    height:35px;
+    line-height:35px;
+    white-space:nowrap;
+    font-family:$font-title;
+    font-weight:600;
+    @extend .g-link--text;
+
+    .current > &{
+        color:$primary;
+        cursor:default;
+    }
+}
+
+.h-menu__btn,
+.h-menu button{
+    @extend .g-btn;
+    @extend .g-btn--alt;
+    margin-top:10px;
+}
+
+@include media($tablet){//на планшете и выше - обычное десктопное меню
+    .h-menu{
+        display:block !important;
+        float:right;
+        position:static;
+        padding:0;
+        margin:0;
+        top:auto;
+        left:auto;
+        right:auto;
+        box-shadow:none;
+
+        &:before,
+        &:after{
+            display:none;
+        }
+    }
+    .h-menu__item,
+    .h-menu li{
+        display:inline-block;
+        vertical-align:middle;
+        margin-left:20px;
+
+        &:first-child{
+            margin-left:0;
+        }
+    }
+
+    .h-menu__link,
+    .h-menu a{
+        display:inline-block;
+        vertical-align:middle;
+        padding:0 10px;
+    }
+
+    .h-menu__btn,
+    .h-menu button{
+        margin:0;
+    }
+}
+

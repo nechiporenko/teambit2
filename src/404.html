@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>404 Page</title>
+    @@include('templates/head.html')
+</head>
+<body class="page page--404">
+    <!--HEADER-->
+    <header class="b-header b-header--404">
+        <nav class="b-header__inner">
+            <a href="index.html" class="b-header__logo">Teambit</a>
+        </nav>
+    </header>
+    <!--/HEADER-->
+	<!--MAIN CONTENT-->
+    <main class="page__content">
+        <section class="g-container">
+            <figure class="content404">
+                <img src="img/404.svg" class="content404__img" alt="" />
+                <figcaption class="content404__entry">
+                    <h1 class="content404__title">Looks like the page you were looking for doesn’t exist</h1>
+                    <p>You may have mistyped the page address or it might have moved.</p>
+                </figcaption>
+            </figure>
+
+            <p class="g-text-center">
+                <a href="index.html" class="g-link">Go to the home page <i class="icon-arrow-right"></i></a>
+            </p>
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+
+    <!--FOOTER-->
+    @@include('templates/footer.html')
+</body>
+</html>

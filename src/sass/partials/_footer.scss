@@ -1,0 +1,83 @@
+@import "../modules/base";
+
+@import "footer/_footer-about";
+
+/*Site Footer*/
+.b-footer{
+    padding:60px 0 25px;
+}
+
+.b-footer__inner{
+    @extend .g-container;
+
+    .b-footer--bordered &{ //has top border
+        position:relative;
+
+        &:before{
+            content:'';
+            display:block;
+            position:absolute;
+            top:-60px;
+            left:25px; right:25px;
+            border-top:1px solid $border-color;
+        }
+
+        @include media($large){
+            &:before{
+                left:0;
+                right:0;
+            }
+        }
+    }
+}
+
+.b-footer__col{
+    @extend .g-column;
+    text-align:center;
+
+    @include media($desktop){
+        width:(100%-$grid-gutter)/2;
+        margin-left:$grid-gutter;
+        text-align:left;
+
+        &:first-child{
+            margin-left:0;
+        }
+    }
+
+    @include media($large){
+        width:(100%-$grid-gutter + 10)/2;
+
+        &:first-child{
+            width:(100%-$grid-gutter - 10)/2;
+        }
+    }
+}
+
+.b-footer__item{
+    @extend .g-column;
+
+    @include media($tablet){
+        width:1*(100%)/3;
+        padding-right:15px;
+        text-align:left;
+
+        &:last-child{
+            padding-right:0;
+        }
+    }
+}
+
+.b-footer__title{
+    @extend .g-subtitle;
+    font-size:rem(18px);
+}
+
+.b-footer__btn{
+    @extend .g-btn;
+    margin:7px 0;
+
+    @include media($desktop){
+        float:right;
+    }
+}

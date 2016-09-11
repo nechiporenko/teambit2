@@ -1,0 +1,37 @@
+﻿@import "../../modules/_base.scss";
+/*Header Social Link Menu*/
+.h-social{
+    @extend .g-clearlist;
+    float:right;
+    font-size:0;
+}
+.h-social__item,
+.h-social li{
+    display:inline-block;
+    vertical-align:middle;
+    margin:0 0 0 10px;
+    font-size:rem(16px);
+
+    &:first-child{
+        margin-left:0;
+    }
+
+    &:last-child{
+        display:none;
+    }
+
+    @include media($mobile){
+        &:last-child{
+            display:inline-block;
+        }
+    }
+}
+
+.h-social__link,
+.h-social a{
+    display:inline-block;
+    vertical-align:middle;
+    height:35px;
+    line-height:35px;
+    @extend .g-link--text;
+}

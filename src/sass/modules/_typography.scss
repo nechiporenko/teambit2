@@ -1,0 +1,84 @@
+﻿/*HarmoniaSansProCyr-SemiBd*/
+@font-face {
+	font-family:'HarmoniaSansProCyr-SemiBd';
+	src: url('../fonts/HarmoniaSansProCyr-SemiBd_gdi.eot');
+	src: url('../fonts/HarmoniaSansProCyr-SemiBd_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/HarmoniaSansProCyr-SemiBd_gdi.woff') format('woff'),
+		url('../fonts/HarmoniaSansProCyr-SemiBd_gdi.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+}
+
+/*HarmoniaSansProCyr-Regular*/
+@font-face {
+	font-family:'HarmoniaSansProCyr-Regular';
+	src: url('../fonts/HarmoniaSansProCyr-Regular_gdi.eot');
+	src: url('../fonts/HarmoniaSansProCyr-Regular_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/HarmoniaSansProCyr-Regular_gdi.woff') format('woff'),
+		url('../fonts/HarmoniaSansProCyr-Regular_gdi.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+}
+
+/*Icon Font*/
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?fruct');
+  src:  url('../fonts/icomoon.eot?fruct#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?fruct') format('truetype'),
+    url('../fonts/icomoon.woff?fruct') format('woff'),
+    url('../fonts/icomoon.svg?fruct#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration:none;
+  line-height: 1;
+  display:inline-block;
+  vertical-align:middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-right{
+    transform:translateY(-1px);
+}
+
+.icon-twitter:before {
+  content: "\e900";
+}
+.icon-arrow-right:before {
+  content: "\e901";
+}
+.icon-check:before {
+  content: "\e902";
+}
+.icon-facebook:before {
+  content: "\e903";
+}
+.icon-google:before {
+  content: "\e904";
+}
+.icon-linkedin:before {
+  content: "\e905";
+}
+.icon-rss:before {
+  content: "\e906";
+}
+.icon-close:before {
+  content: "\e907";
+}
+.icon-menu:before {
+  content: "\e908";
+}

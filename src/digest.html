@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>Digest Page</title>
+    @@include('templates/head.html')
+</head>
+<body class="page">
+    <!--HEADER-->
+    @@include('templates/header-social.html')
+    <!--/HEADER-->
+	<!--MAIN CONTENT-->
+    <main class="page__content">
+        <section class="page__section">
+            <div class="g-container">
+                <!--subscribe block-->
+                <div class="b-subscribe">
+                    <div class="b-subscribe__entry">
+                        <h1 class="b-subscribe__title">The best newsletter on how to build fucking awesome teams</h1>
+                        <p>Join people from companies like Intercom, Spotify and more who get our weekly digest of articles on company culture and engagement.</p>
+
+                        <form class="b-subscribe__form">
+                            <input type="email" class="b-subscribe__input" placeholder="Email adress..." required />
+                            <button type="submit" class="b-subscribe__btn">Subscribe</button>
+                        </form>
+                    </div>
+                    <figure class="b-subscribe__thumb">
+                        <img src="img/bunny.svg" class="b-subscribe__img" alt="" />
+                    </figure>
+                </div>
+                <!--/subscribe block-->
+            </div>
+        </section>
+    </main>
+	<!--/MAIN CONTENT-->
+
+    <!--FOOTER-->
+    @@include('templates/footer-alt.html')
+</body>
+</html>

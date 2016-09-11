@@ -1,0 +1,42 @@
+﻿@import "../../modules/_base.scss";
+/*Questions List*/
+.b-quest{
+    max-width:630px;
+    margin:0 auto;
+
+    a{
+        color:$text-color;
+
+        &:hover{
+            color:$primary;
+        }
+    }
+}
+.b-quest__list{
+    @extend .g-clearlist;
+    @extend .g-clearfix;
+}
+
+$quest-gutter:10.8%;
+.b-quest__item{
+    @extend .g-column;
+    margin-bottom:25px;
+
+    @include media($tablet){
+        width:(100% - $quest-gutter)/2;
+        margin-right:$quest-gutter;
+
+        &:nth-child(2n){
+            margin-right:0;
+        }
+
+        &:nth-child(2n+1){
+            clear:left;
+        }
+    }
+}
+
+.b-quest__title{
+    @extend .g-subtitle;
+    font-size:rem(14px);
+}

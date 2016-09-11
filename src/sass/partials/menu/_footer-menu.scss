@@ -1,0 +1,21 @@
+﻿@import "../../modules/_base.scss";
+/*Footer Menu*/
+.f-menu{
+    @extend .g-clearlist;
+}
+.f-menu__item,
+.f-menu li{
+    display:block;
+    font-size:rem(14px);
+    line-height:2.4;
+}
+
+.f-menu__link,
+.f-menu a{
+    @extend .g-link--text;
+
+    .current > &{
+        color:$primary;
+        cursor:default;
+    }
+}

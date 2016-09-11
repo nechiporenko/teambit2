@@ -1,0 +1,67 @@
+﻿@import "../../modules/_base.scss";
+/*Subscribe (Digest) block*/
+.b-subscribe{
+    max-width:835px;
+    margin:0 auto;
+    @extend .g-clearfix;
+}
+.b-subscribe__entry,
+.b-subscribe__thumb{
+    @extend .g-column;
+    text-align:center;
+}
+
+.b-subscribe__entry{
+    font-size:rem(20px);
+    line-height:1.5;
+}
+
+
+.b-subscribe__title{
+    @extend .g-title;
+    margin-bottom:20px;
+}
+
+.b-subscribe__form{
+    margin:35px 0;
+    text-align:left;
+    font-size:0;
+}
+
+.b-subscribe__input{
+    @extend .g-input;
+}
+
+.b-subscribe__btn{
+    @extend .g-btn;
+    width:100%;
+}
+
+@include media($mobile){
+    .b-subscribe__input{
+         width:(100%-$grid-gutter)/2;
+         margin-bottom:0;
+    }
+    .b-subscribe__btn{
+        width:(100%-$grid-gutter)/2;
+        margin-left:$grid-gutter;
+    }
+}
+
+@include media($tablet){
+    .b-subscribe__entry{
+        width:500*100%/835;
+        text-align:left;
+    }
+    .b-subscribe__thumb{
+        width:335*100%/835;
+        text-align:right;
+    }
+
+    .b-subscribe__input{
+        width:240px; 
+    }
+    .b-subscribe__btn{
+        width:auto;
+    }
+}

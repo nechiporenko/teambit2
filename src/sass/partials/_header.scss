@@ -1,0 +1,78 @@
+@import "../modules/base";
+
+@import "header/_logo.scss";
+/*Site Header*/
+.b-header{
+    padding:20px 0;
+    margin-bottom:40px;
+}
+.b-header__inner{
+    @extend .g-container;
+    position:relative;
+
+    &:before{//border bottom
+        content:'';
+        display:block;
+        position:absolute;
+        bottom:-20px;
+        left:0; right:0;
+        border-bottom:1px solid $border-color;
+    }
+
+    @include media($tablet){
+        &:before{
+            left:25px;
+            right:25px;
+        }
+    }
+
+    @include media($large){
+        &:before{
+            left:0;
+            right:0;
+        }
+    }
+}
+
+
+//header buttons
+.b-header__menubtn{//mobile menu toggle button
+    @extend .g-clearbutton;
+    float:right;
+    @include size(35px);
+    font-size:rem(16px);
+}
+
+.b-header__btn{//checkout button
+    @extend .g-btn;
+    float:right;
+    margin-left:35px;
+    display:none;
+}
+
+@include media($tablet){
+    .b-header__menubtn{
+        display:none;
+    }
+
+    .b-header__btn{
+        display:block;
+    }
+}
+
+
+//404 header modify
+.b-header--404{
+    .b-header__inner{
+        &:before{
+            display:none;
+        }
+
+        .b-header__logo{
+            float:none;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    }
+}

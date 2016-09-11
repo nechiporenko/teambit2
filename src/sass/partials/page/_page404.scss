@@ -1,0 +1,25 @@
+﻿@import "../../modules/_base.scss";
+/*Page 404 content*/
+.page--404{//body class
+    background:$bg-alt;
+}
+
+.content404{
+    max-width:410px;
+    margin:0 auto $project-line-height;
+    padding:30px;
+    background:#fff;
+    border:1px solid $border-color;
+    border-radius:$border-radius;
+    text-align:center;
+    box-sizing:border-box;
+}
+.content404__img{
+    margin-bottom:20px;
+}
+.content404__entry{
+    text-align:left;
+}
+.content404__title{
+    @extend .g-subtitle;
+}

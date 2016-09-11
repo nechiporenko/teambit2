@@ -1,0 +1,52 @@
+﻿@import "../../modules/_base.scss";
+/*Tabs*/
+.b-tabs{
+    list-style-type:none;
+    padding:0;
+    margin-bottom:40px;
+    font-size:0;
+    line-height:1;
+    position:relative;
+
+    &:before{
+        content:'';
+        display:block;
+        height:1px;
+        background:#e1ddd4;
+        position:absolute;
+        left:0; right:0; bottom:0;
+    }
+}
+
+.b-tabs__item{
+    display:inline-block;
+    vertical-align:middle;
+    font-size:rem(20px);
+    margin-left:30px;
+
+    &:first-child{
+        margin-left:0;
+    }
+}
+
+.b-tabs__link{
+    display:inline-block;
+    padding:7px 0;
+    color:$title-color;
+    text-decoration:none;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+    font-family:$font-title;
+    font-weight:600;
+
+    &:hover,
+    &:active{
+        color:$primary;
+    }
+
+    .current > &{
+        border-bottom-color:$primary;
+        color:$primary;
+        cursor:default;
+    }
+}

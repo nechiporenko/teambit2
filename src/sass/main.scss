@@ -1,0 +1,25 @@
+﻿// CSS normalize
+@import "modules/normalize";
+//base styles + bourbon
+// see modules/_base.scss
+@import "modules/main";
+
+//modules
+@import "modules/utilities";
+@import "modules/grid";
+@import "modules/button";
+@import "modules/forms";
+
+
+//typography
+@import "modules/typography";
+
+//page parts
+@import "partials/header";
+@import "partials/menu";
+@import "partials/page";
+@import "partials/footer";
+
+
+//print styles
+@import "modules/print";

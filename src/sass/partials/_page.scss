@@ -1,0 +1,79 @@
+﻿@import "../modules/_base.scss";
+
+
+@import "page/_tabs.scss";
+@import "page/_price-list.scss";
+@import "page/_questions-list.scss";
+@import "page/_page404.scss";
+@import "page/_subscribe.scss";
+
+/*Page Common Elements*/
+.page__section{
+    padding:25px 0;
+}
+
+.page__section--alt{
+    padding:45px 0;
+    background:$bg-alt;
+}
+
+.page__header{
+    margin-bottom:35px;
+    text-align:center;
+
+    .g-title{
+        margin-bottom:5px;
+    }
+    p{
+        max-width:410px;
+        margin-left:auto;
+        margin-right:auto;
+        font-size:rem(20px);
+        line-height:1.5;
+    }
+    a{
+        display:inline-block;
+        white-space:nowrap;
+        color:$text-color;
+        position:relative;
+        text-decoration:none;
+
+        &:after{
+            content:'';
+            position:absolute;
+            bottom:5px; left:0;
+            width:100%;
+            border-top:1px solid $text-color;
+            @extend .g-transition;
+            transition-property:border-color;
+        }
+
+        &:hover{
+            color:$primary;
+            &:after{
+                border-top-color:$primary;
+            }
+        }
+    }
+}
+
+.page__tab{
+    //max-width:800px;
+    @extend .g-clearfix;
+
+    h1, h2, h3, h4, h5, h6{
+        margin-bottom:0;
+        font-size:rem(14px);
+    }
+
+    p{
+        margin-bottom:30px;
+    }
+}
+.page__date{
+    margin:7px 0 30px;
+    color:#897e64;
+}
+
+
+
