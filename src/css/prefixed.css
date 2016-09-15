@@ -437,7 +437,7 @@ hr {
 
 /* Transitions */
 .g-transition, a, button, input[type="button"], input[type="submit"],
-input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select, .g-shadow-hover, .b-price__inner, .page__header a:after {
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select, .g-shadow-hover, .b-price__inner, .b-header, .h-menu__svg path, .page__header a:after {
   -webkit-transition-duration: .2s;
           transition-duration: .2s;
   -webkit-transition-timing-function: ease-in;
@@ -537,7 +537,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   text-overflow: ellipsis;
 }
 
-.g-align, .b-price__img {
+.g-align, .h-menu__svg, .b-price__img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -706,6 +706,13 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   line-height: 33px;
   background: #fff;
   color: #30488f;
+}
+
+.g-btn--alt:hover, .h-menu__btn:hover,
+.h-menu button:hover, .b-price__btn--alt:hover, .g-btn--alt:focus, .h-menu__btn:focus,
+.h-menu button:focus, .b-price__btn--alt:focus, .g-btn--alt:active, .h-menu__btn:active,
+.h-menu button:active, .b-price__btn--alt:active {
+  background: #30488f;
 }
 
 .g-btn--alt:disabled:hover, .h-menu__btn:disabled:hover,
@@ -1038,8 +1045,30 @@ input[type="radio"] {
 
 /*Site Header*/
 .b-header {
+  width: 100%;
   padding: 20px 0;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 1000;
+  background: #fff;
+  -webkit-transition-property: top;
+          transition-property: top;
+  will-change: top;
+}
+
+.b-header.invisible, .b-header.scrolled {
+  position: fixed;
+  padding: 10px;
+  left: 0;
+}
+
+.b-header.invisible {
+  top: -75px;
+}
+
+.b-header.scrolled {
+  top: 0;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.08);
 }
 
 .b-header__inner {
@@ -1054,6 +1083,12 @@ input[type="radio"] {
   left: 0;
   right: 0;
   border-bottom: 1px solid #bdb5af;
+}
+
+.scrolled .b-header__inner:before {
+  bottom: -10px;
+  left: -1000px;
+  right: -1000px;
 }
 
 @media screen and (min-width: 48em) {
@@ -1114,13 +1149,17 @@ input[type="radio"] {
   left: 0;
   right: 0;
   background: #fff;
-  z-index: 900;
+  z-index: 1000;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
   display: none;
 }
 
 .h-menu.active {
   display: block;
+}
+
+.scrolled .h-menu.active {
+  margin-top: 10px;
 }
 
 .h-menu:before, .h-menu:after {
@@ -1175,13 +1214,20 @@ input[type="radio"] {
   margin-top: 10px;
 }
 
+.h-menu__btn:hover .h-menu__svg path, .h-menu__btn:active .h-menu__svg path, .h-menu__btn:focus .h-menu__svg path,
+.h-menu button:hover .h-menu__svg path,
+.h-menu button:active .h-menu__svg path,
+.h-menu button:focus .h-menu__svg path {
+  fill: #fff !important;
+}
+
 @media screen and (min-width: 48em) {
   .h-menu {
     display: block !important;
     float: right;
     position: static;
     padding: 0;
-    margin: 0;
+    margin: 0 !important;
     top: auto;
     left: auto;
     right: auto;
@@ -1209,6 +1255,46 @@ input[type="radio"] {
   .h-menu__btn,
   .h-menu button {
     margin: 0;
+  }
+}
+
+.h-menu__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+  height: 18px;
+  width: 18px;
+  position: relative;
+}
+
+.h-menu__svg path {
+  -webkit-transition-property: fill;
+          transition-property: fill;
+}
+
+@media screen and (min-width: 48em) {
+  .scrolled .h-menu__btn,
+  .scrolled .h-menu button,
+  .invisible .h-menu__btn,
+  .invisible .h-menu button {
+    background: #30488f;
+    color: #fff;
+  }
+  .scrolled .h-menu__btn:hover, .scrolled .h-menu__btn:focus, .scrolled .h-menu__btn:active,
+  .scrolled .h-menu button:hover,
+  .scrolled .h-menu button:focus,
+  .scrolled .h-menu button:active,
+  .invisible .h-menu__btn:hover,
+  .invisible .h-menu__btn:focus,
+  .invisible .h-menu__btn:active,
+  .invisible .h-menu button:hover,
+  .invisible .h-menu button:focus,
+  .invisible .h-menu button:active {
+    background: #233569;
+  }
+  .scrolled .h-menu__svg path,
+  .invisible .h-menu__svg path {
+    fill: #fff !important;
   }
 }
 
@@ -1593,6 +1679,17 @@ input[type="radio"] {
 .page__date {
   margin: 7px 0 30px;
   color: #897e64;
+}
+
+.page__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  opacity: 0.5;
+  z-index: 999;
 }
 
 /*Footer About Block*/

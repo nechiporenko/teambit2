@@ -56,6 +56,12 @@
     background:#fff;
     color:$primary;
 
+    &:hover,
+    &:focus,
+    &:active{
+        background:$primary;
+    }
+
     &:disabled{
         &:hover,
         &:active{

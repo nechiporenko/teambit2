@@ -1,4 +1,10 @@
 ﻿// Application Scripts:
+
+//add js class to html tag
+//show / hide mobile menu
+//show / hide header
+//tabs
+
 (function () {
     //
     //add js class to html tag
@@ -8,36 +14,99 @@
     addClass(html, 'js');
 
     //
-    //show - hide mobile menu
+    //show / hide mobile menu
     //---------------------------------------------------
     (function () {
         var menu_btn = document.getElementsByClassName('js-menu-toggle')[0],
             icon = menu_btn.children[0],
-            menu = document.getElementsByClassName('js-menu')[0];
+            menu = document.getElementsByClassName('js-menu')[0],
+            method = {};
 
-        menu_btn.addEventListener('click', checkMenuState);
+        method.activeClass = 'active';
+        method.iconMenuClass = 'icon-menu';
+        method.iconCloseClass = 'icon-close';
+        method.overlayClass = 'page__overlay';
+        method.overlayID = 'overlay';
 
-        function checkMenuState() {
-            if (hasClass(menu_btn, 'active')) {
-                hideMenu();
+        method.checkMenuState = function () {
+            if (hasClass(menu_btn, method.activeClass)) {
+                method.hideMenu();
             } else {
-                showMenu();
+                method.showMenu();
             }
         };
 
-        function showMenu() {
-            addClass(menu_btn, 'active');
-            addClass(menu, 'active');
-            removeClass(icon, 'icon-menu');
-            addClass(icon, 'icon-close');
+        method.showMenu = function () {
+            addClass(menu_btn, method.activeClass);
+            addClass(menu, method.activeClass);
+            removeClass(icon, method.iconMenuClass);
+            addClass(icon, method.iconCloseClass);
+            method.addOverlay();
         };
 
-        function hideMenu() {
-            removeClass(menu_btn, 'active');
-            removeClass(menu, 'active');
-            removeClass(icon, 'icon-close');
-            addClass(icon, 'icon-menu');
+        method.hideMenu = function () {
+            removeClass(menu_btn, method.activeClass);
+            removeClass(menu, method.activeClass);
+            removeClass(icon, method.iconCloseClass);
+            addClass(icon, method.iconMenuClass);
+            method.removeOverlay();
         };
+
+        method.addOverlay = function () {
+            var overlay = document.createElement('div');
+            overlay.className = method.overlayClass;
+            overlay.setAttribute('id', method.overlayID);
+            document.body.appendChild(overlay);
+            overlay.addEventListener('click', method.hideMenu);
+        };
+
+        method.removeOverlay = function () {
+            var overlay = document.getElementById(method.overlayID);
+            overlay.removeEventListener('click', method.hideMenu);
+            overlay.parentElement.removeChild(overlay);
+        };
+
+        menu_btn.addEventListener('click', method.checkMenuState);
+    })();
+
+    //
+    //show / hide header
+    //---------------------------------------------------
+    (function () {
+        var header = document.getElementsByClassName('js-header')[0],
+            isHeaderFixed = false,//flag state 1
+            isHeaderVisible = true,//flag state 2
+            headerOffset = 75,
+            scrollOffset = 350,
+            headerFixedClass = 'scrolled',
+            headerInVisibleClass = 'invisible'; //we need 2 state for smooth header animation
+
+        function checkHeaderOffset() {
+            var winOffset = window.pageYOffset;
+            if (isHeaderVisible && winOffset >= headerOffset) {
+                isHeaderVisible = false;
+                addClass(header, headerInVisibleClass);
+            };
+            if (!isHeaderFixed && winOffset >= scrollOffset) {
+                isHeaderFixed = true;
+                isHeaderVisible = false;
+                addClass(header, headerFixedClass);
+                removeClass(header, headerInVisibleClass);
+            };
+            if (isHeaderFixed && winOffset < scrollOffset) {
+                isHeaderFixed = false;
+                isHeaderVisible = true;
+                removeClass(header, headerFixedClass);
+                addClass(header, headerInVisibleClass);
+            };
+            if (!isHeaderVisible && winOffset < headerOffset) {
+                isHeaderVisible = true;
+                removeClass(header, headerInVisibleClass);
+            };
+        };
+
+        checkHeaderOffset();
+        window.addEventListener('scroll', checkHeaderOffset);
     })();
 
     //

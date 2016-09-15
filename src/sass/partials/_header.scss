@@ -3,8 +3,31 @@
 @import "header/_logo.scss";
 /*Site Header*/
 .b-header{
+    width:100%;
     padding:20px 0;
     margin-bottom:40px;
+    position:relative;
+    z-index:1000;
+    background:#fff;
+    @extend .g-transition;
+    transition-property:top;
+    will-change:top;
+
+    &.invisible,
+    &.scrolled{
+        position:fixed;
+        padding:10px;
+        left:0;
+    }
+
+    &.invisible{
+        top:-75px;
+    }
+
+    &.scrolled{
+        top:0;
+        box-shadow:0 1px 1px 1px rgba(#000,.08);
+    }
 }
 .b-header__inner{
     @extend .g-container;
@@ -17,6 +40,12 @@
         bottom:-20px;
         left:0; right:0;
         border-bottom:1px solid $border-color;
+
+        .scrolled &{
+            bottom:-10px;
+            left:-1000px;
+            right:-1000px;
+        }
     }
 
     @include media($tablet){

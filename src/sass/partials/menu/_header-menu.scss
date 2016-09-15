@@ -10,12 +10,16 @@
     left:0;
     right:0;
     background:#fff;
-    z-index:900;
+    z-index:1000;
     box-shadow:0 2px 2px 1px rgba(#000, .1);
     display:none;
 
     &.active{
         display:block;
+
+        .scrolled &{
+            margin-top:10px;
+        }
     }
 
     &:before,
@@ -64,6 +68,14 @@
     @extend .g-btn;
     @extend .g-btn--alt;
     margin-top:10px;
+
+    &:hover,
+    &:active,
+    &:focus{
+        .h-menu__svg path{
+            fill:#fff !important;
+        }
+    }
 }
 
 @include media($tablet){//на планшете и выше - обычное десктопное меню
@@ -72,7 +84,7 @@
         float:right;
         position:static;
         padding:0;
-        margin:0;
+        margin:0 !important;
         top:auto;
         left:auto;
         right:auto;
@@ -104,6 +116,43 @@
     .h-menu__btn,
     .h-menu button{
         margin:0;
+    }
+}
+
+//button svg
+.h-menu__icon{
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:3px;
+    @include size(18px);
+    position:relative;
+}
+.h-menu__svg{
+    @extend .g-align;
+    path{
+        @extend .g-transition;
+        transition-property:fill;
+    }
+}
+
+@include media($tablet){
+    .scrolled,
+    .invisible{
+        .h-menu__btn,
+        .h-menu button{
+            background:$primary;
+            color:#fff;
+
+            &:hover,
+            &:focus,
+            &:active{
+                background:darken($primary, 10%);
+            }
+        }
+
+        .h-menu__svg path{
+            fill:#fff !important;
+        }
     }
 }
 

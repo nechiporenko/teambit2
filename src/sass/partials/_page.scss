@@ -58,7 +58,6 @@
 }
 
 .page__tab{
-    //max-width:800px;
     @extend .g-clearfix;
 
     h1, h2, h3, h4, h5, h6{
@@ -73,6 +72,18 @@
 .page__date{
     margin:7px 0 30px;
     color:#897e64;
+}
+
+//overlay
+.page__overlay{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+    opacity: 0.5;
+    z-index:999;
 }
 
 
