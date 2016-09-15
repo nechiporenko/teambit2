@@ -1049,7 +1049,7 @@ input[type="radio"] {
 
 .b-header.invisible, .b-header.scrolled {
   position: fixed;
-  padding: 10px;
+  padding: 10px 0;
   left: 0;
 }
 
@@ -1149,8 +1149,9 @@ input[type="radio"] {
   display: block;
 }
 
-.scrolled .h-menu.active {
-  margin-top: 10px;
+.scrolled .h-menu.active,
+.invisible .h-menu.active {
+  margin: 10px 0 0 0;
 }
 
 .h-menu:before, .h-menu:after {
