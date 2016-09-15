@@ -83,32 +83,32 @@
     //---------------------------------------------------
     (function () {
         var header = document.getElementsByClassName('js-header')[0],
-            isHeaderFixed = false,//flag state 1
-            isHeaderVisible = true,//flag state 2
+            isHeaderFixed = false,//flag state #1
+            isHeaderVisible = true,//flag state #2
             headerOffset = 75,
             scrollOffset = 350,
             headerFixedClass = 'scrolled',
             headerInVisibleClass = 'invisible'; //we need 2 state for smooth header animation
 
         function checkHeaderOffset() {
-            var winOffset = window.pageYOffset;
-            if (isHeaderVisible && winOffset >= headerOffset) {
+            var pageOffset = window.pageYOffset;
+            if (isHeaderVisible && pageOffset >= headerOffset  && pageOffset < scrollOffset) {
                 isHeaderVisible = false;
                 addClass(header, headerInVisibleClass);
             };
-            if (!isHeaderFixed && winOffset >= scrollOffset) {
+            if (!isHeaderFixed && pageOffset >= scrollOffset) {
                 isHeaderFixed = true;
                 isHeaderVisible = false;
                 addClass(header, headerFixedClass);
                 removeClass(header, headerInVisibleClass);
             };
-            if (isHeaderFixed && winOffset < scrollOffset) {
+            if (isHeaderFixed && pageOffset < scrollOffset) {
                 isHeaderFixed = false;
-                isHeaderVisible = true;
+                isHeaderVisible = false;
                 removeClass(header, headerFixedClass);
                 addClass(header, headerInVisibleClass);
             };
-            if (!isHeaderVisible && winOffset < headerOffset) {
+            if (!isHeaderVisible && pageOffset < headerOffset) {
                 isHeaderVisible = true;
                 removeClass(header, headerInVisibleClass);
             };
