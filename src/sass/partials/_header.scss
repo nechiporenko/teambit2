@@ -92,6 +92,7 @@
 
 //404 header modify
 .b-header--404{
+    background:$bg-alt;
     .b-header__inner{
         &:before{
             display:none;

@@ -1118,6 +1118,10 @@ input[type="radio"] {
   }
 }
 
+.b-header--404 {
+  background: #ffe7d2;
+}
+
 .b-header--404 .b-header__inner:before {
   display: none;
 }
