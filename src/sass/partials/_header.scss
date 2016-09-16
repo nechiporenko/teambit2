@@ -10,7 +10,7 @@
     z-index:1000;
     background:#fff;
     @extend .g-transition;
-    transition-property:top;
+    transition-property:top, padding;
     will-change:top;
 
     &.invisible,
@@ -40,6 +40,8 @@
         bottom:-20px;
         left:0; right:0;
         border-bottom:1px solid $border-color;
+        @extend .g-transition;
+        transition-property:bottom, left, right;
 
         .scrolled &{
             bottom:-10px;

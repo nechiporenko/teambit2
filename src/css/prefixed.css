@@ -437,7 +437,7 @@ hr {
 
 /* Transitions */
 .g-transition, a, button, input[type="button"], input[type="submit"],
-input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select, .g-shadow-hover, .b-price__inner, .b-header, .h-menu__svg path, .page__header a:after {
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select, .g-shadow-hover, .b-price__inner, .b-header, .b-header__inner:before, .h-menu, .h-menu__svg path, .page__header a:after {
   -webkit-transition-duration: .2s;
           transition-duration: .2s;
   -webkit-transition-timing-function: ease-in;
@@ -1051,8 +1051,8 @@ input[type="radio"] {
   position: relative;
   z-index: 1000;
   background: #fff;
-  -webkit-transition-property: top;
-          transition-property: top;
+  -webkit-transition-property: top, padding;
+          transition-property: top, padding;
   will-change: top;
 }
 
@@ -1083,6 +1083,8 @@ input[type="radio"] {
   left: 0;
   right: 0;
   border-bottom: 1px solid #bdb5af;
+  -webkit-transition-property: bottom, left, right;
+          transition-property: bottom, left, right;
 }
 
 .scrolled .b-header__inner:before {
@@ -1156,6 +1158,8 @@ input[type="radio"] {
   z-index: 1000;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
   display: none;
+  -webkit-transition-property: margin;
+          transition-property: margin;
 }
 
 .h-menu.active {
@@ -1692,7 +1696,7 @@ input[type="radio"] {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f2f2f2;
+  background: #fff;
   opacity: 0.5;
   z-index: 999;
 }
