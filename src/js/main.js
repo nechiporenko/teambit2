@@ -86,32 +86,56 @@
             headerFixedClass = 'scrolled',
             headerInVisibleClass = 'invisible'; //we need 2 state for smooth header animation
 
-        function checkHeaderOffset() {
-            var pageOffset = window.pageYOffset;
-            if (isHeaderVisible && pageOffset >= headerOffset  && pageOffset < scrollOffset) {
+        var raf = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame;
+
+        var _window = window,
+            lastScrollTop = _window.pageYOffset;
+
+        if (raf) {
+            loop();
+        };
+
+        function checkHeaderOffset(fromTop) {
+            if (isHeaderVisible && fromTop >= headerOffset  && fromTop < scrollOffset) {
                 isHeaderVisible = false;
                 addClass(header, headerInVisibleClass);
             };
-            if (!isHeaderFixed && pageOffset >= scrollOffset) {
+            if (!isHeaderFixed && fromTop >= scrollOffset) {
                 isHeaderFixed = true;
                 isHeaderVisible = false;
                 addClass(header, headerFixedClass);
                 removeClass(header, headerInVisibleClass);
             };
-            if (isHeaderFixed && pageOffset < scrollOffset) {
+            if (isHeaderFixed && fromTop < scrollOffset) {
                 isHeaderFixed = false;
                 isHeaderVisible = false;
                 removeClass(header, headerFixedClass);
                 addClass(header, headerInVisibleClass);
             };
-            if (!isHeaderVisible && pageOffset < headerOffset) {
+            if (!isHeaderVisible && fromTop < headerOffset) {
                 isHeaderVisible = true;
                 removeClass(header, headerInVisibleClass);
             };
         };
 
-        checkHeaderOffset();
-        window.addEventListener('scroll', checkHeaderOffset);
+        function loop() {
+            var fromTop = _window.pageYOffset;
+            if (lastScrollTop === fromTop) {
+                raf(loop);
+                return;
+            } else {
+                lastScrollTop = fromTop;
+                // fire scroll function if scrolls vertically
+                checkHeaderOffset(fromTop);
+                raf(loop);
+            }
+        };
+
+        checkHeaderOffset(lastScrollTop); //check scroll on page load
     })();
 
     //
