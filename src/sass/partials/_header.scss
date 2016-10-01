@@ -3,32 +3,37 @@
 @import "header/_logo.scss";
 /*Site Header*/
 .b-header{
-    width:100%;
-    padding:20px 0;
+    height:75px;
+    position:relative;
     margin-bottom:40px;
     position:relative;
+}
+
+.b-header__wrapper{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 0;
     z-index:1000;
     background:#fff;
     @extend .g-transition;
-    transition-property:top, padding;
-    will-change:top;
+    transition-property:transform;
+    will-change:top, transform;
 
-    &.invisible,
-    &.scrolled{
+    .invisible > &,
+    .scrolled > &{
         position:fixed;
         padding:10px 0;
-        left:0;
-    }
-
-    &.invisible{
         top:-75px;
     }
 
-    &.scrolled{
-        top:0;
+    .scrolled > &{
+        transform:translateY(75px);
         box-shadow:0 1px 1px 1px rgba(#000,.08);
     }
 }
+
 .b-header__inner{
     @extend .g-container;
     position:relative;
@@ -40,10 +45,10 @@
         bottom:-20px;
         left:0; right:0;
         border-bottom:1px solid $border-color;
-        @extend .g-transition;
-        transition-property:bottom, left, right;
+        //@extend .g-transition;
+        //transition-property:bottom, left, right;
 
-        .scrolled &{
+        .scrolled & {
             bottom:-10px;
             left:-1000px;
             right:-1000px;

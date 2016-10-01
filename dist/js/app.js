@@ -29,6 +29,11 @@
         var menu_btn = document.getElementsByClassName('js-menu-toggle')[0],
             icon = menu_btn.children[0],
             menu = document.getElementsByClassName('js-menu')[0],
+            activeClass = 'active',
+            iconMenuClass = 'icon-menu',
+            iconCloseClass = 'icon-close',
+            overlayClass = 'page__overlay',
+            overlayId = 'overlay',
             method = {};
 
         method.activeClass = 'active';
@@ -38,7 +43,7 @@
         method.overlayID = 'overlay';
 
         method.checkMenuState = function () {
-            if (hasClass(menu_btn, method.activeClass)) {
+            if (hasClass(menu_btn, activeClass)) {
                 method.hideMenu();
             } else {
                 method.showMenu();
@@ -46,31 +51,31 @@
         };
 
         method.showMenu = function () {
-            addClass(menu_btn, method.activeClass);
-            addClass(menu, method.activeClass);
-            removeClass(icon, method.iconMenuClass);
-            addClass(icon, method.iconCloseClass);
+            addClass(menu_btn, activeClass);
+            addClass(menu, activeClass);
+            removeClass(icon, iconMenuClass);
+            addClass(icon, iconCloseClass);
             method.addOverlay();
         };
 
         method.hideMenu = function () {
-            removeClass(menu_btn, method.activeClass);
-            removeClass(menu, method.activeClass);
-            removeClass(icon, method.iconCloseClass);
-            addClass(icon, method.iconMenuClass);
+            removeClass(menu_btn, activeClass);
+            removeClass(menu, activeClass);
+            removeClass(icon, iconCloseClass);
+            addClass(icon, iconMenuClass);
             method.removeOverlay();
         };
 
         method.addOverlay = function () {
             var overlay = document.createElement('div');
             overlay.className = method.overlayClass;
-            overlay.setAttribute('id', method.overlayID);
+            overlay.setAttribute('id', overlayId);
             document.body.appendChild(overlay);
             overlay.addEventListener('click', method.hideMenu);
         };
 
         method.removeOverlay = function () {
-            var overlay = document.getElementById(method.overlayID);
+            var overlay = document.getElementById(overlayId);
             overlay.removeEventListener('click', method.hideMenu);
             overlay.parentElement.removeChild(overlay);
         };
