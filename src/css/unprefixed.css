@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6, .g-title, .b-price__title, .b-subscribe__title, .g-subti
   font-size: 1.75rem;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .g-title, .b-price__title, .b-subscribe__title {
     font-size: 2.25rem;
   }
@@ -582,7 +582,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   display: block;
 }
 
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 1200px) {
   .g-container, .b-header__inner, .b-footer__inner {
     padding-left: 0;
     padding-right: 0;
@@ -612,7 +612,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   min-height: 1px;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .g-col {
     margin-left: 2.3576520234%;
   }
@@ -621,7 +621,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   }
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .g-col--one-half {
     width: 48.8211739883%;
   }
@@ -1044,27 +1044,32 @@ input[type="radio"] {
 }
 
 .b-header__wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
   z-index: 1000;
   background: #fff;
-  transition-property: transform;
   will-change: top, transform;
 }
 
-.invisible > .b-header__wrapper,
-.scrolled > .b-header__wrapper {
-  position: fixed;
-  padding: 10px 0;
-  top: -75px;
-}
-
-.scrolled > .b-header__wrapper {
-  transform: translateY(75px);
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.08);
+@media screen and (min-width: 768px) {
+  .b-header__wrapper {
+    position: absolute;
+    padding: 20px 0;
+    transition-property: transform;
+  }
+  .invisible > .b-header__wrapper,
+  .scrolled > .b-header__wrapper {
+    position: fixed;
+    padding: 10px 0;
+    top: -75px;
+  }
+  .scrolled > .b-header__wrapper {
+    transform: translateY(75px);
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.08);
+  }
 }
 
 .b-header__inner {
@@ -1075,26 +1080,26 @@ input[type="radio"] {
   content: '';
   display: block;
   position: absolute;
-  bottom: -20px;
+  bottom: -10px;
   left: 0;
   right: 0;
   border-bottom: 1px solid #bdb5af;
 }
 
-.scrolled .b-header__inner:before {
-  bottom: -10px;
-  left: -1000px;
-  right: -1000px;
-}
-
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-header__inner:before {
+    bottom: -20px;
     left: 25px;
     right: 25px;
   }
+  .scrolled .b-header__inner:before {
+    bottom: -10px;
+    left: -1000px;
+    right: -1000px;
+  }
 }
 
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 1200px) {
   .b-header__inner:before {
     left: 0;
     right: 0;
@@ -1114,7 +1119,7 @@ input[type="radio"] {
   display: none;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-header__menubtn {
     display: none;
   }
@@ -1142,7 +1147,7 @@ input[type="radio"] {
 .h-menu {
   list-style-type: none;
   padding: 15px 25px;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
   font-size: 0;
   position: absolute;
   top: 100%;
@@ -1157,11 +1162,6 @@ input[type="radio"] {
 
 .h-menu.active {
   display: block;
-}
-
-.scrolled .h-menu.active,
-.invisible .h-menu.active {
-  margin: 10px 0 0 0;
 }
 
 .h-menu:before, .h-menu:after {
@@ -1223,7 +1223,7 @@ input[type="radio"] {
   fill: #fff !important;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .h-menu {
     display: block !important;
     float: right;
@@ -1273,7 +1273,7 @@ input[type="radio"] {
   transition-property: fill;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .scrolled .h-menu__btn,
   .scrolled .h-menu button,
   .invisible .h-menu__btn,
@@ -1337,7 +1337,7 @@ input[type="radio"] {
   display: none;
 }
 
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 480px) {
   .h-social__item:last-child,
   .h-social li:last-child {
     display: inline-block;
@@ -1414,13 +1414,13 @@ input[type="radio"] {
   line-height: 1;
 }
 
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 1200px) {
   .b-price {
     margin: 55px auto 20px;
   }
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-price__item {
     float: left;
     display: block;
@@ -1450,7 +1450,7 @@ input[type="radio"] {
   text-align: center;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-price__inner {
     max-width: 210px;
     padding: 22px;
@@ -1515,7 +1515,7 @@ input[type="radio"] {
   margin-bottom: 25px;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-quest__item {
     width: 44.6%;
     margin-right: 10.8%;
@@ -1586,7 +1586,7 @@ input[type="radio"] {
   width: 100%;
 }
 
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 480px) {
   .b-subscribe__input {
     width: 48.8211739883%;
     margin-bottom: 0;
@@ -1597,7 +1597,7 @@ input[type="radio"] {
   }
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-subscribe__entry {
     width: 59.880239521%;
     text-align: left;
@@ -1720,7 +1720,7 @@ input[type="radio"] {
   text-decoration: underline;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .f-about {
     width: 460px;
     margin-left: auto;
@@ -1735,7 +1735,7 @@ input[type="radio"] {
   }
 }
 
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 992px) {
   .f-about {
     margin: 0;
   }
@@ -1760,7 +1760,7 @@ input[type="radio"] {
   border-top: 1px solid #bdb5af;
 }
 
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 1200px) {
   .b-footer--bordered .b-footer__inner:before {
     left: 0;
     right: 0;
@@ -1771,7 +1771,7 @@ input[type="radio"] {
   text-align: center;
 }
 
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 992px) {
   .b-footer__col {
     width: 48.8211739883%;
     margin-left: 2.3576520234%;
@@ -1782,7 +1782,7 @@ input[type="radio"] {
   }
 }
 
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 1200px) {
   .b-footer__col {
     width: 53.8211739883%;
   }
@@ -1791,7 +1791,7 @@ input[type="radio"] {
   }
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 768px) {
   .b-footer__item {
     width: 33.3333333333%;
     padding-right: 15px;
@@ -1810,7 +1810,7 @@ input[type="radio"] {
   margin: 7px 0;
 }
 
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 992px) {
   .b-footer__btn {
     float: right;
   }

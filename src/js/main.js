@@ -27,12 +27,6 @@
             overlayId = 'overlay',
             method = {};
 
-        method.activeClass = 'active';
-        method.iconMenuClass = 'icon-menu';
-        method.iconCloseClass = 'icon-close';
-        method.overlayClass = 'page__overlay';
-        method.overlayID = 'overlay';
-
         method.checkMenuState = function () {
             if (hasClass(menu_btn, activeClass)) {
                 method.hideMenu();
@@ -59,7 +53,7 @@
 
         method.addOverlay = function () {
             var overlay = document.createElement('div');
-            overlay.className = method.overlayClass;
+            overlay.className = overlayClass;
             overlay.setAttribute('id', overlayId);
             document.body.appendChild(overlay);
             overlay.addEventListener('click', method.hideMenu);

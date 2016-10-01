@@ -10,27 +10,32 @@
 }
 
 .b-header__wrapper{
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
-    padding:20px 0;
+    padding:10px 0;
     z-index:1000;
     background:#fff;
     @extend .g-transition;
-    transition-property:transform;
     will-change:top, transform;
 
-    .invisible > &,
-    .scrolled > &{
-        position:fixed;
-        padding:10px 0;
-        top:-75px;
-    }
+    @include media($tablet){
+        position:absolute;
+        padding:20px 0;
+        transition-property:transform;
 
-    .scrolled > &{
-        transform:translateY(75px);
-        box-shadow:0 1px 1px 1px rgba(#000,.08);
+        .invisible > &,
+        .scrolled > &{
+            position:fixed;
+            padding:10px 0;
+            top:-75px;
+        }
+
+        .scrolled > &{
+            transform:translateY(75px);
+            box-shadow:0 1px 1px 1px rgba(#000,.08);
+        }
     }
 }
 
@@ -42,23 +47,22 @@
         content:'';
         display:block;
         position:absolute;
-        bottom:-20px;
+        bottom:-10px;
         left:0; right:0;
         border-bottom:1px solid $border-color;
-        //@extend .g-transition;
-        //transition-property:bottom, left, right;
-
-        .scrolled & {
-            bottom:-10px;
-            left:-1000px;
-            right:-1000px;
-        }
     }
 
     @include media($tablet){
         &:before{
+            bottom:-20px;
             left:25px;
             right:25px;
+        }
+
+        .scrolled &:before {
+            bottom:-10px;
+            left:-1000px;
+            right:-1000px;
         }
     }
 
