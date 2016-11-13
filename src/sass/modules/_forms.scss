@@ -28,6 +28,8 @@ textarea {
     box-shadow: none;
     font-size:rem(16px);
     box-sizing: border-box;
+    @extend .g-transition;
+    transition-property:border-color,color,background-color, box-shadow;
 
     @include placeholder{
         color:$placeholder-color;
@@ -88,20 +90,4 @@ input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
 
-
-/*.g-fieldset{
-    position:relative;
-}*/
-/*.g-fieldset__msg{
-    font-size:rem(10px);
-    color:$error-color;
-    position:absolute;
-    left:0; bottom:0;
-    font-style:italic;
-    display:none;
-
-    .error > &{
-        display:block;
-    }
-}*/
 

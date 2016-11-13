@@ -10,6 +10,10 @@
     @extend .g-clearfix;
 }
 
+.g-container--inner{
+    max-width:860px;
+}
+
 @include media($large){
     .g-container{
         padding-left:0;

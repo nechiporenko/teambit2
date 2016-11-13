@@ -101,6 +101,10 @@ a {
     }
 }
 
+.g-big-text{
+    font-size:rem(20px);
+}
+
 /* Lists */
 ul {
     list-style: disc outside; }
@@ -135,23 +139,6 @@ cite{
     font-size:75%;
 }
 
-/* Code */
-code {
-    padding:2px 5px;
-    margin:0 2px;
-    font-size: 90%;
-    white-space: nowrap;
-    background: #F1F1F1;
-    border: 1px solid $border-color;
-    border-radius:$border-radius;
-}
-pre > code {
-  display: block;
-  padding:10px 15px;
-  white-space: pre;
-}
-
-
 /* Spacing */
 p {
   margin-top: 0; }
@@ -181,8 +168,7 @@ hr {
 	transition-duration:.2s;
     transition-timing-function:ease-in;
 }
-a, button, input[type="button"], input[type="submit"],
-#{$all-text-inputs}, select{
+a, button{
     transition-property:border-color,color,background-color, box-shadow, transform;
     @extend .g-transition;
 }

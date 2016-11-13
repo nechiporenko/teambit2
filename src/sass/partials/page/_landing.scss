@@ -1,0 +1,260 @@
+﻿@import "../../modules/_base.scss";
+/*Home page elements*/
+.b-hero{
+    max-width:628px;
+    margin:0 auto;
+    @extend .page__section;
+    text-align:center;
+    font-size:rem(20px);
+
+    .g-title{
+        font-size:rem(30px);
+    }
+}
+
+@include media($tablet){
+    .b-hero--alt{
+        padding:0 !important;
+        text-align:left;
+    }
+}
+
+//login form
+.b-login{
+    max-width:628px;
+    margin:0 auto 35px;
+}
+.b-login__btn{
+    @extend .g-btn;
+}
+.b-login__btn--alt{
+    @extend .g-btn--alt;
+    width:100%;
+    background:none;
+
+    &:hover,
+    &:active,
+    &:focus{
+        .b-login__icon{
+            path{
+                fill:#fff;
+            }
+        }
+    }
+}
+
+.b-login__icon{
+    display:inline-block;
+    vertical-align:middle;
+    transform:translateY(-1px);
+    path{
+        @extend .g-transition;
+        transition-property:fill;
+    }
+}
+
+.b-login__btn--main{
+    float:left;
+    margin-left:$grid-gutter;
+    width:45% - $grid-gutter;
+}
+
+.b-login__input{
+    @extend .g-input;
+    float:left;
+    width:55%;
+}
+
+.b-login__label{
+    display:block;
+    height:35px;
+    line-height:35px;
+    font-size:rem(13px);
+    color: #bdb5af;
+    text-align:center;
+}
+.b-login__fieldset{
+    @extend .g-clearfix;
+}
+
+.b-login__caption--md{
+    display:none;
+}
+
+@include media($tablet){
+    .b-login__btn--alt{
+        float:left;
+        margin:0;
+        width:180px;
+    }
+
+    .b-login__label{
+        float:left;
+        width:38px;
+    }
+
+    .b-login__fieldset{
+        float:right;
+        width:410px;
+    }
+
+    .b-login__caption--xs{
+        display:none;
+    }
+
+    .b-login__caption--md{
+        display:inline;
+    }
+}
+
+//svg img container
+.b-icon{
+    max-width:220px;
+    margin:0 auto;
+    position:relative;
+
+    &:after{
+        content:'';
+        display:block;
+        padding-top:75%;
+    }
+}
+
+.b-icon__img{
+    @extend .g-img-centered;
+}
+
+//features
+.b-features{
+    @extend .g-container;
+    @extend .g-container--inner;
+}
+.b-features__hero{
+    @extend .b-hero;
+    padding:0 !important;
+    
+    @include media($desktop){
+        float:left;
+        width:25%;
+        text-align:left;
+    }
+}
+
+.b-features__list{
+    max-width:630px;
+    margin:0 auto;
+    padding:0;
+    list-style-type:none;
+    @extend .g-clearfix;
+
+    @include media($desktop){
+        float:left;
+        width:75% - $grid-gutter;
+        margin:0 0 0 $grid-gutter;
+    }
+}
+
+.b-features__item{
+    @extend .g-column;
+
+    @include media($small){
+        @include span-columns(6);
+        @include omega(2n);
+    }
+}
+
+.b-features__inner{
+    max-width:280px;
+    margin:0 auto 35px;
+}
+
+.b-features__thumb{
+    margin-bottom:15px;
+    position:relative;
+    
+
+    &:after{
+        content:'';
+        display:block;
+        padding-top:216*100%/280;
+    }
+}
+
+.b-features__img{
+    display:block;
+    border-radius:$border-radius;
+    @extend .g-img-centered;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.b-features__entry{
+    font-size:rem(16px);
+    line-height:1.5;
+    text-align:center;
+
+    @include media($small){
+        text-align:left;
+    }
+}
+
+.b-features__title{
+    font-size:rem(20px);
+    margin-bottom:10px;
+}
+
+//quote
+.b-quote{
+    max-width:628px;
+    margin:35px auto;
+    padding:20px 20px 20px 40px;
+    border:1px solid #bdb5af;
+    border-radius:$border-radius;
+    background:#fff;
+    box-sizing:border-box;
+    position:relative;
+    font-size:rem(14px);
+    line-height:1.5;
+
+    p{
+        margin-bottom:25px;
+    }
+
+    &:after{
+        content:'';
+        display:block;
+        width:37px;
+        height:39px;
+        position:absolute;
+        top:-23px; left:-1px;
+        background:url(../img/landing/quote.svg) center center no-repeat;
+        z-index:1;
+    }
+}
+
+.b-quote__author{
+    @extend .g-clearfix;
+}
+
+.b-quote__photo{
+    float:left;
+    font-size:0;
+
+    img{
+        margin-left:12px;
+
+        &:first-of-type{
+            margin-left:0;
+        }
+    }
+}
+
+.b-quote__cite{
+    margin-left:100px;
+    font-size:rem(12px);
+}
+
+.b-quote__name{
+    display:block;
+    font-size:rem(14px);
+    color:#30488f;
+}

@@ -15,6 +15,7 @@
 //tabs
 
 (function () {
+    'use strict'
     //
     //add js class to html tag
     //---------------------------------------------------
