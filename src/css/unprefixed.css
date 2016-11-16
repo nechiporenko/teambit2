@@ -322,6 +322,15 @@ h1, h2, h3, h4, h5, h6, .g-title, .b-price__title, .b-subscribe__title, .g-subti
   }
 }
 
+.g-title--alt {
+  line-height: 1.533334;
+}
+
+.g-title--alt img {
+  vertical-align: baseline;
+  transform: translateY(3px);
+}
+
 .g-subtitle, .b-quest__title, .content404__title, .b-footer__title {
   display: block;
   font-size: 1.25rem;
@@ -423,7 +432,7 @@ hr {
 }
 
 /* Transitions */
-.g-transition, a, button, .g-shadow-hover, .b-price__inner, .g-input, .b-subscribe__input, .b-login__input,
+.g-transition, a, button, .g-input, .b-subscribe__input, .b-login__input,
 .g-select,
 .g-textarea, .b-header__wrapper, .h-menu, .h-menu__svg path, .b-login__icon path, .page__header a:after {
   transition-duration: .2s;
@@ -439,36 +448,11 @@ a, button {
   text-align: center;
 }
 
-/*.g-img-left{
-    float:left;
-    margin:0 20px 5px 0;
-    @extend .g-max-full-width;
-}
-.g-img-right{
-    float:right;
-    margin:0 0 5px 20px; 
-    @extend .g-max-full-width;
-}*/
 .g-full-width {
   width: 100%;
   box-sizing: border-box;
 }
 
-/*.g-max-full-width {
-  max-width: 100%;
-  box-sizing: border-box;
-}*/
-/*.g-as-table{
-    display:table;
-    width:100%;
-    height:100%;
-    table-layout:fixed;
-}
-.g-as-cell{
-    display:table-cell;
-    vertical-align:middle;
-    text-align:center;
-}*/
 .g-img-centered, .b-icon__img, .b-features__img {
   position: absolute;
   top: 0;
@@ -494,25 +478,6 @@ a, button {
 	height: 100%;
     border:none;
 }*/
-/*.g-resp-text{
-    font-size:rem(14px);
-
-    @include media($tablet){
-        font-size:rem(15px);
-    }
-
-    @include media($desktop){
-        font-size:rem(16px);
-    }
-}*/
-.g-shadow-hover, .b-price__inner {
-  transition-property: box-shadow, border-color;
-}
-
-.g-shadow-hover:hover, .b-price__inner:hover {
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .g-truncate, .b-price__title, .b-price__meta {
   display: block;
   overflow: hidden;
@@ -527,11 +492,6 @@ a, button {
   transform: translate(-50%, -50%);
 }
 
-/*.g-valign{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-}*/
 .g-hidden {
   display: none !important;
   visibility: hidden;
@@ -669,13 +629,16 @@ a, button {
 }
 
 .g-btn:disabled, .b-header__btn:disabled, .h-menu__btn:disabled,
-.h-menu button:disabled, .b-price__btn:disabled, .b-subscribe__btn:disabled, .b-login__btn:disabled, .b-footer__btn:disabled {
+.h-menu button:disabled, .b-price__btn:disabled, .b-subscribe__btn:disabled, .b-login__btn:disabled, .b-footer__btn:disabled, .g-btn.disabled, .disabled.b-header__btn, .disabled.h-menu__btn,
+.h-menu button.disabled, .disabled.b-price__btn, .disabled.b-subscribe__btn, .disabled.b-login__btn, .disabled.b-footer__btn {
   opacity: .5;
 }
 
 .g-btn:disabled:hover, .b-header__btn:disabled:hover, .h-menu__btn:disabled:hover,
 .h-menu button:disabled:hover, .b-price__btn:disabled:hover, .b-subscribe__btn:disabled:hover, .b-login__btn:disabled:hover, .b-footer__btn:disabled:hover, .g-btn:disabled:active, .b-header__btn:disabled:active, .h-menu__btn:disabled:active,
-.h-menu button:disabled:active, .b-price__btn:disabled:active, .b-subscribe__btn:disabled:active, .b-login__btn:disabled:active, .b-footer__btn:disabled:active {
+.h-menu button:disabled:active, .b-price__btn:disabled:active, .b-subscribe__btn:disabled:active, .b-login__btn:disabled:active, .b-footer__btn:disabled:active, .g-btn.disabled:hover, .disabled.b-header__btn:hover, .disabled.h-menu__btn:hover,
+.h-menu button.disabled:hover, .disabled.b-price__btn:hover, .disabled.b-subscribe__btn:hover, .disabled.b-login__btn:hover, .disabled.b-footer__btn:hover, .g-btn.disabled:active, .disabled.b-header__btn:active, .disabled.h-menu__btn:active,
+.h-menu button.disabled:active, .disabled.b-price__btn:active, .disabled.b-subscribe__btn:active, .disabled.b-login__btn:active, .disabled.b-footer__btn:active {
   color: #fff;
   background: #30488f;
 }
@@ -1844,6 +1807,10 @@ input[type="radio"] {
   background: #ffe7d2;
 }
 
+.page__section--toppad {
+  padding-top: 80px;
+}
+
 .page__header {
   margin-bottom: 35px;
   text-align: center;
@@ -1963,7 +1930,8 @@ input[type="radio"] {
 
 /*Site Footer*/
 .b-footer {
-  padding: 60px 0 25px;
+  margin-top: 50px;
+  padding: 55px 0;
 }
 
 .b-footer--bordered .b-footer__inner {

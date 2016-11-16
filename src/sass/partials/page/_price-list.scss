@@ -31,7 +31,6 @@
     background:#fff;
     box-sizing:border-box;
     text-align:center;
-    @extend .g-shadow-hover;
 
     @include media($tablet){
         max-width:210px;
