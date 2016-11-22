@@ -587,6 +587,61 @@ a, button {
   }
 }
 
+/*img-grid*/
+.b-grid {
+  font-size: 0;
+  padding: 0 25px;
+}
+
+.b-grid__wrap {
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.b-grid__wrap--full {
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.b-grid__wrap--full.b-grid__wrap--left {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .b-grid {
+    padding: 0;
+  }
+  .b-grid__wrap {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .b-grid__wrap--full {
+    margin-bottom: 0;
+  }
+  .b-grid__wrap--left {
+    padding-right: 10px;
+  }
+  .b-grid__wrap--left .b-grid__inner {
+    float: right;
+  }
+  .b-grid__wrap--right {
+    padding-left: 10px;
+  }
+  .b-grid__inner {
+    width: 420px;
+  }
+  .b-grid__img {
+    max-width: none;
+  }
+  .b-grid__img--left {
+    float: right;
+  }
+  .b-grid__img--right {
+    float: left;
+  }
+}
+
 /* Buttons */
 .g-btn, .b-header__btn, .h-menu__btn,
 .h-menu button, .b-price__btn, .b-subscribe__btn, .b-login__btn, .b-footer__btn,
@@ -1571,7 +1626,7 @@ input[type="radio"] {
   font-size: 1.875rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .b-hero--alt {
     padding: 0 !important;
     text-align: left;
