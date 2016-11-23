@@ -27,6 +27,7 @@
     background: $primary;
     border-radius:$border-radius;
     border:none;
+    position:relative;
 
     &:hover,
     &:focus,
@@ -69,6 +70,40 @@
             background:#fff;
             color:$primary;
         }
+    }
+}
+
+//success states & icons
+.g-btn__icon{
+    display:none;
+    @include size(16px);
+    line-height:16px;
+    position:absolute;
+    font-size:12px;
+    left:2px;
+    top:50%;
+    margin-top:-9px;
+}
+
+.g-btn--sent{
+    .g-btn__icon--sent{
+        display:block;
+        animation: rotating 2s linear infinite;
+    }
+}
+
+.g-btn--success{
+    .g-btn__icon--success{
+        display:block;       
+    }
+}
+
+@include keyframes(rotating){
+    0%{
+        transform:rotate(0);
+    }
+    100%{
+        transform:rotate(360deg);
     }
 }
 

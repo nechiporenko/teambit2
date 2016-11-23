@@ -673,6 +673,7 @@ a, button {
   background: #30488f;
   border-radius: 7px;
   border: none;
+  position: relative;
 }
 
 .g-btn:hover, .b-header__btn:hover, .h-menu__btn:hover,
@@ -723,6 +724,54 @@ a, button {
 .h-menu button:disabled:active, .b-price__btn--alt:disabled:active, .b-login__btn--alt:disabled:active {
   background: #fff;
   color: #30488f;
+}
+
+.g-btn__icon {
+  display: none;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  position: absolute;
+  font-size: 12px;
+  left: 2px;
+  top: 50%;
+  margin-top: -9px;
+}
+
+.g-btn--sent .g-btn__icon--sent {
+  display: block;
+  animation: rotating 2s linear infinite;
+}
+
+.g-btn--success .g-btn__icon--success {
+  display: block;
+}
+
+@-webkit-keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Forms */
@@ -956,8 +1005,8 @@ input[type="radio"] {
 /*Icon Font*/
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?fruct");
-  src: url("../fonts/icomoon.eot?fruct#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?fruct") format("truetype"), url("../fonts/icomoon.woff?fruct") format("woff"), url("../fonts/icomoon.svg?fruct#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?45udk1");
+  src: url("../fonts/icomoon.eot?45udk1#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?45udk1") format("truetype"), url("../fonts/icomoon.woff?45udk1") format("woff"), url("../fonts/icomoon.svg?45udk1#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -979,6 +1028,10 @@ input[type="radio"] {
 
 .icon-arrow-right {
   transform: translateY(-1px);
+}
+
+.icon-load:before {
+  content: "\e909";
 }
 
 .icon-twitter:before {
@@ -1936,6 +1989,7 @@ input[type="radio"] {
 
 /*Footer About Block*/
 .f-about {
+  margin-bottom: 25px;
   text-align: center;
 }
 
@@ -1967,6 +2021,7 @@ input[type="radio"] {
     width: 460px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
     text-align: left;
   }
   .f-about__img {
@@ -2034,6 +2089,10 @@ input[type="radio"] {
   }
 }
 
+.b-footer__item {
+  margin-top: 25px;
+}
+
 @media screen and (min-width: 768px) {
   .b-footer__item {
     width: 33.3333333333%;
@@ -2042,6 +2101,12 @@ input[type="radio"] {
   }
   .b-footer__item:last-child {
     padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .b-footer__item {
+    margin-top: 0;
   }
 }
 

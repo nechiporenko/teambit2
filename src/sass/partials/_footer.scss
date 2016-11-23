@@ -57,6 +57,7 @@
 
 .b-footer__item{
     @extend .g-column;
+    margin-top:25px;
 
     @include media($tablet){
         width:1*(100%)/3;
@@ -66,6 +67,10 @@
         &:last-child{
             padding-right:0;
         }
+    }
+
+    @include media($desktop){
+        margin-top:0;
     }
 }
 

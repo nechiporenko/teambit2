@@ -26,7 +26,7 @@
     //
     //show / hide mobile menu
     //---------------------------------------------------
-    (function () {
+    (function() {
         var menu_btn = document.getElementsByClassName('js-menu-toggle')[0],
             icon = menu_btn.children[0],
             menu = document.getElementsByClassName('js-menu')[0],
