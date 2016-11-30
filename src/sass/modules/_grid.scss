@@ -83,6 +83,10 @@
     }
 }
 
+.b-grid__wrap--xl{
+    display:none;
+}
+
 @include media($desktop){
     .b-grid{
         padding:0;
@@ -93,6 +97,12 @@
         vertical-align:top;
     }
 
+    .b-grid__wrap--sm{
+        display:none;
+    }
+    .b-grid__wrap--xl{
+        display:inline-block;
+    }
     .b-grid__wrap--full{
         margin-bottom:0;
     }

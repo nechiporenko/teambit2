@@ -614,6 +614,10 @@ a, button {
   margin-bottom: 30px;
 }
 
+.b-grid__wrap--xl {
+  display: none;
+}
+
 @media screen and (min-width: 992px) {
   .b-grid {
     padding: 0;
@@ -622,6 +626,12 @@ a, button {
     width: 50%;
     display: inline-block;
     vertical-align: top;
+  }
+  .b-grid__wrap--sm {
+    display: none;
+  }
+  .b-grid__wrap--xl {
+    display: inline-block;
   }
   .b-grid__wrap--full {
     margin-bottom: 0;
